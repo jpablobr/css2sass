@@ -1,14 +1,24 @@
 %html
   %head
-    %title CSS2Sass | Convert CSS Snippets to Syntactically Awesome StyleSheets code
+    %title css2sass | Convert CSS Snippets to Syntactically Awesome StyleSheets code
     - %w{ reset text 960 app }.each do |css|
       %link{ :href => "/stylesheets/#{css}.css", :rel => "stylesheet", :type => "text/css", :media => "screen", :charset => "utf-8" }
     %meta{ :name => 'description', :content => 'CSS2Sass | Convert CSS Snippets to Syntactically Awesome StyleSheets code'  }
     %meta{ :name => 'keywords', :content => 'haml, ruby, html, rails, ruby on rails, Sass, SCSS'  }
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-5087606-8']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
   %body
     %h6
       %a{:href => "http://sass-lang.com/"} Sass
-    %h1 CSS2Sass
+    %h1 css2sass
     %p Convert CSS Snippets to Syntactically Awesome StyleSheets code
     %hr
     .container_12
@@ -24,13 +34,3 @@
         %p
           Source at
           %a{:href => "http://github.com/jpablobr/css2sass"} http://github.com/jpablobr/css2sass
-      .clear
-      
-    %script{ :type => "text/javascript" }
-      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-    %script{ :type => "text/javascript" }
-      try {
-      var pageTracker = _gat._getTracker("UA-9459466-1");
-      pageTracker._trackPageview();
-      } catch(err) {}        
