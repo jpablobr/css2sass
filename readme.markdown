@@ -4,7 +4,7 @@
 
 css2sass is a simple sinatra app that Convert CSS Snippets to Syntactically Awesome StyleSheets code.
 
-Is is heavily inspired by [html2haml app](http://html2haml.heroku.com/)
+Is is heavily inspired by the [html2haml app](http://html2haml.heroku.com/)
 
 You simply copy your CSS in the first box and click convert, then see the results in the Sass box below.
 
