@@ -1,0 +1,22 @@
+h1. Html2Haml 
+
+h2. WebSite
+
+"http://html2haml.heroku.com":http://html2haml.heroku.com
+
+Html2Haml is a simple sinatra app that converts html markup to haml.
+
+You simply copy your html in the first box and click convert, then see the results in the haml box below.
+
+Check it out.
+
+This also demonstrates using Cucumber and Webrat with Sinatra.  And doing BDD with technologies.
+
+h2. Api
+
+You can also run the convert via a RestClient or Curl Client, by posting your html in the page_html parameter.
+
+Coming Soon
+
+h2. License
+

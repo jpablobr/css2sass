@@ -1,0 +1,7 @@
+body { margin: 20px 100px;color:gray;font-family: monospace }
+h6 { float:right; }
+h1 { margin-bottom:5px; }
+label { display:block; }
+textarea { width:700px;height:250px; }
+input.button { margin:20px; text-aligin:center; }
+a, a:visited { color: gray;}

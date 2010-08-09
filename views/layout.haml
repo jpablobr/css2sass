@@ -1,0 +1,36 @@
+%html
+  %head
+    %title CSS2Sass | Convert CSS Snippets to Syntactically Awesome StyleSheets code
+    - %w{ reset text 960 app }.each do |css|
+      %link{ :href => "/stylesheets/#{css}.css", :rel => "stylesheet", :type => "text/css", :media => "screen", :charset => "utf-8" }
+    %meta{ :name => 'description', :content => 'CSS2Sass | Convert CSS Snippets to Syntactically Awesome StyleSheets code'  }
+    %meta{ :name => 'keywords', :content => 'haml, ruby, html, rails, ruby on rails, Sass, SCSS'  }
+  %body
+    %h6
+      %a{:href => "http://sass-lang.com/"} Sass
+    %h1 CSS2Sass
+    %p Convert CSS Snippets to Syntactically Awesome StyleSheets code
+    %hr
+    .container_12
+      .grid_12
+        = yield
+      .clear
+      .grid_12
+        #box
+        %hr
+        %p
+          This simple site created by Jose Pablo Barrantes...
+          %a{:href => "http://jpablobr.com"} http://.jpablobr.com
+        %p
+          Source at
+          %a{:href => "http://github.com/jpablobr/css2sass"} http://github.com/jpablobr/css2sass
+      .clear
+      
+    %script{ :type => "text/javascript" }
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    %script{ :type => "text/javascript" }
+      try {
+      var pageTracker = _gat._getTracker("UA-9459466-1");
+      pageTracker._trackPageview();
+      } catch(err) {}        
