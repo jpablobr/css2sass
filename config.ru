@@ -14,6 +14,6 @@ set :environment, :production
 disable :run
 
 
-require 'html2haml.rb'
+require 'css2sass.rb'
 
 run Sinatra::Application

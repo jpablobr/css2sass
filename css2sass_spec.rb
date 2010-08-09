@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'html2haml.rb'  # <-- your sinatra app
+require 'css2sass.rb'  # <-- your sinatra app
 require 'spec'
 require 'spec/interop/test'
 require 'rack/test'
