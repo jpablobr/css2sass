@@ -1,1 +1,8 @@
 webrat*
+.bundle
+.DS_Store
+*/.DS_Store
+log/*.log
+test/fixtures/*
+doc
+REVISION
