@@ -2,7 +2,6 @@ require "haml"
 require "sass/css"
 require "json"
 
-# test
 helpers do
   include Rack::Utils
   alias_method :h, :escape_html
