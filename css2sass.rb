@@ -11,12 +11,17 @@ get "/" do
   haml :index
 end
 
-
 post "/*" do
-  puts params
+  puts params["commit"]
   if params["page"]
     @css = params["page"]["css"]
-    @sass = convert(@css)
+
+    if params["commit"] == "Convert 2 SCSS"
+      @sass = convert_to_scss(@css)
+    else
+      @sass = convert_to_sass(@css)
+    end
+
     if params[:splat].include?("json")
       {:page => {:css => @css, :sass => @sass}}.to_json
     elsif params[:splat].include?("xml")
@@ -27,8 +32,12 @@ post "/*" do
   end
 end
 
-def convert(css)
-  Sass::CSS.new(@css).render
+def convert_to_sass(css)
+  Sass::CSS.new(@css).render(:sass)
+end
+
+def convert_to_scss(css)
+  Sass::CSS.new(@css).render(:scss) 
 end
 
 def to_xml
