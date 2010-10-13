@@ -1,7 +1,6 @@
 %form{:method => "POST", :action => "/", :id => "page"}
   %label{:for => "page_css"} 
-    CSS
-    %span (paste your CSS code and press convert)
+    CSS (paste your CSS code and convert!)
   %textarea{:id => "page_css", :name => "page[css]"}=h @css || ""
   %br
   %input.button{:type => "submit", :name => "commit", :value => "Convert 2 SCSS"}
@@ -10,6 +9,5 @@
   
   %br
   %label{:for => "page_sass"} 
-    Sass 
-    %span (Here is your CSS code in Sass)      
+    Your Syntactically Awesome StyleSheets code
     %textarea{:id => "page_sass", :name => "page[sass]"}= @sass || ""
