@@ -6,3 +6,4 @@ log/*.log
 test/fixtures/*
 doc
 REVISION
+*.lock
