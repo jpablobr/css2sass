@@ -1,22 +1,20 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    abstract (1.0.0)
-    builder (2.1.2)
-    daemons (1.1.0)
-    erubis (2.6.6)
-      abstract (>= 1.0.0)
+    builder (3.0.0)
+    daemons (1.1.2)
+    erubis (2.7.0)
     eventmachine (0.12.10)
     haml (3.0.11)
-    hpricot (0.8.2)
-    json (1.4.6)
-    rack (1.2.1)
-    ruby_parser (2.0.5)
+    hpricot (0.8.4)
+    json (1.5.1)
+    rack (1.2.2)
+    ruby_parser (2.0.6)
       sexp_processor (~> 3.0)
     sexp_processor (3.0.5)
     sinatra (1.0)
       rack (>= 1.0)
-    thin (1.2.7)
+    thin (1.2.11)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
@@ -27,9 +25,9 @@ PLATFORMS
 DEPENDENCIES
   builder
   erubis
-  haml (= 3.0.11)
+  haml
   hpricot
   json
   ruby_parser
-  sinatra (= 1.0.0)
+  sinatra
   thin
