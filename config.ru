@@ -1,10 +1,9 @@
 require 'rubygems'
-require 'bundler/setup'
-require 'sinatra'
+require 'bundler'
+Bundler.require
+require './css2sass.rb'
 
 set :environment, :production
 disable :run
 
-require 'css2sass.rb'
-
-run Sinatra::Application
+run Css2sass

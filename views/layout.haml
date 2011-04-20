@@ -16,10 +16,11 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
   %body
-    %h6
-      %a{:href => "http://sass-lang.com/"} Sass
-    %h1 css2sass
-    %p Convert CSS Snippets to Syntactically Awesome StyleSheets code
+    #title
+      %h1 css2sass
+      #version
+        %a{:href => "http://sass-lang.com/"} Version
+        = Sass.version[:string]
     %hr
     .container_12
       .grid_12
@@ -35,5 +36,5 @@
         %p
           This simple site is created by Jose Pablo Barrantes @
           %a{ :href => "http://jpablobr.com"} http://jpablobr.com
-          && heavily inspired by 
+          && heavily inspired by
           %a{ :href => "http://html2haml.heroku.com/"}html2haml

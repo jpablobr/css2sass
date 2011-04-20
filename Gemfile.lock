@@ -5,19 +5,26 @@ GEM
     daemons (1.1.2)
     erubis (2.7.0)
     eventmachine (0.12.10)
-    haml (3.0.11)
+    haml (3.0.25)
     hpricot (0.8.4)
     json (1.5.1)
     rack (1.2.2)
+    rack-flash (0.1.1)
+      rack
     ruby_parser (2.0.6)
       sexp_processor (~> 3.0)
     sexp_processor (3.0.5)
-    sinatra (1.0)
-      rack (>= 1.0)
+    sinatra (1.2.3)
+      rack (~> 1.1)
+      tilt (< 2.0, >= 1.2.2)
+    sinatra-redirect-with-flash (0.1.2)
+      rack-flash (>= 0.1.1)
+      sinatra (>= 0.9.1)
     thin (1.2.11)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
+    tilt (1.2.2)
 
 PLATFORMS
   ruby
@@ -28,6 +35,8 @@ DEPENDENCIES
   haml
   hpricot
   json
+  rack-flash
   ruby_parser
   sinatra
+  sinatra-redirect-with-flash
   thin
