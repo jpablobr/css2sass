@@ -1,10 +1,6 @@
-webrat*
 .bundle
 .DS_Store
 */.DS_Store
 log/*.log
-test/fixtures/*
-doc
-REVISION
 .lock
-tmp/pids/passenger.3000.pid.lock
+tmp/*
