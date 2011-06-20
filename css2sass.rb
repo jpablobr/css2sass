@@ -22,6 +22,7 @@ class Css2sass < Sinatra::Base
 
   post "/*" do
     if params["page"]
+      puts params
       @css = params["page"]["css"]
       css_to_sass(params["commit"])
 
@@ -36,8 +37,7 @@ class Css2sass < Sinatra::Base
   end
 
   def css_to_sass(type={})
-    if type["commit"] == "Convert 2 SCSS"
-
+    if type.eql?("Convert 2 SCSS")
       if convert_to_scss(@css).class == String
         @sass = convert_to_scss(@css)
         flash[:error] = '' # TODO: Fix this shit!
