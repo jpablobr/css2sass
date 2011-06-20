@@ -18,7 +18,6 @@ group :development, :test do
   gem 'rspec-instafail'
   gem 'rack-test'
   gem 'awesome_print'
-  gem 'ruby-debug19'
   gem 'libnotify'
   gem 'guard-rspec'
   gem 'guard-bundler'
