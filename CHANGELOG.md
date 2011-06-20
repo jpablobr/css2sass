@@ -7,4 +7,4 @@
 
 ## 0.1.1 (Jun 21, 2011)
 
-  - Added spec dir for hopefully better testing.
+  - Added spec dir for setting up a better testing environment.
