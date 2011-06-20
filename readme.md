@@ -26,7 +26,8 @@ See `css2sass_spec.rb`
 
 ## TODO
 
-* ...
+* Flash warnings TODO:!
+* Better tests.
 
 ## Resources
 

@@ -7,3 +7,4 @@ test/fixtures/*
 doc
 REVISION
 .lock
+tmp/pids/passenger.3000.pid.lock
