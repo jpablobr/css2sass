@@ -11,6 +11,10 @@ class Css2sass < Sinatra::Base
 	set :show_exceptions, true if development?
   set :raise_errors, false
 
+  def self.testing_string
+    puts  "testing string"
+  end
+
   helpers do
     include Rack::Utils
     alias_method :h, :escape_html
