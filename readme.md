@@ -1,4 +1,5 @@
-# css2sass
+css2sass
+========
 
 [http://css2sass.heroku.com/](http://css2sass.heroku.com/)
 
@@ -8,32 +9,27 @@ It's heavily inspired by the [html2haml app](http://html2haml.heroku.com/)
 
 ## Usage
 
-1 - Paste the CSS in the first box
-2 - click convert
-3 - Done!
+* Paste the CSS in the first box
+* click convert
+* Done!
 
 ## API
 
-It currently supports properly with json and xml.
+json and xml.
 
 ## Testing
 
-[RSpec](http://wiki.github.com/dchelimsky/rspec)
-
-[Sinatra testing](http://www.sinatrarb.com/testing.html)
-
-See `css2sass_spec.rb`
+See `test/test_css2sass.rb`
 
 ## TODO
 
 * Flash warnings TODO:!
-* Better tests.
+* More tests.
 
 ## Resources
 
-*    [Sinatra](http://www.sinatrarb.com)
-*    [Mongodb](http://www.mongodb.org)
-*    [SASS](http://sass-lang.com/)
+* [Sinatra](http://www.sinatrarb.com)
+* [SASS](http://sass-lang.com/)
 
 ## Note on Patches/Pull Requests
 

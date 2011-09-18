@@ -14,16 +14,15 @@ class TestCss2sass < MiniTest::Unit::TestCase
   end
 
   def test_api_speak_json
-    p @browser.post '/json', json_post
+    @browser.post '/json', json_post
     assert @browser.last_response.ok?
     assert_match json_response, @browser.last_response.body
   end
 
   def test_api_speak_xml
-    p @browser.post '/xml', xml_post
+    @browser.post '/xml', xml_post
     assert @browser.last_response.ok?
     assert_match xml_response, @browser.last_response.body
-
   end
 
   def home_title
@@ -54,14 +53,14 @@ class TestCss2sass < MiniTest::Unit::TestCase
 
   def xml_response
     "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-      "<page>\n  " +
-        "<css>\n    " +
-          "<![CDATA[.content-navigation { border-color: #3bbfce; color: #2b9eab; }]]>\n  " +
-        "</css>\n  " +
-        "<sass>\n    " +
-          "<![CDATA[.content-navigation\n  border-color: #3bbfce\n  color: #2b9eab\n]]>\n  " +
-        "</sass>\n" +
-      "</page>\n"
+    "<page>\n  " +
+    "<css>\n    " +
+    "<![CDATA[.content-navigation { border-color: #3bbfce; color: #2b9eab; }]]>\n  " +
+    "</css>\n  " +
+    "<sass>\n    " +
+    "<![CDATA[.content-navigation\n  border-color: #3bbfce\n  color: #2b9eab\n]]>\n  " +
+    "</sass>\n" +
+    "</page>\n"
   end
 
 end
