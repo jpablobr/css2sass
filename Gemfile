@@ -12,10 +12,6 @@ gem 'rack-flash'
 gem 'sinatra-redirect-with-flash'
 
 group :development, :test do
-  gem 'rspec'
-  gem 'webrat'
-  gem 'rspec-core'
-  gem 'rspec-instafail'
   gem 'rack-test'
   gem 'awesome_print'
   gem 'libnotify'
@@ -24,4 +20,5 @@ group :development, :test do
   gem 'rb-inotify'
   gem 'shotgun'
   gem 'heroku'
+  gem 'ZenTest'
 end
