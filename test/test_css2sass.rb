@@ -7,7 +7,7 @@ class TestCss2sass < MiniTest::Unit::TestCase
     @browser = Rack::Test::Session.new(Rack::MockSession.new(Css2sass))
   end
 
-  def test_it_says_hello_world
+  def test_home_says_css2sass
     @browser.get '/'
     assert @browser.last_response.ok?
     assert_match home_title, @browser.last_response.body
