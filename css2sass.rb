@@ -26,7 +26,6 @@ class Css2sass < Sinatra::Base
 
   post "/*" do
     if params["page"]
-      puts params
       @css = params["page"]["css"]
       css_to_sass(params["commit"])
 
@@ -44,20 +43,16 @@ class Css2sass < Sinatra::Base
     if type.eql?("Convert 2 SCSS")
       if convert_to_scss(@css).class == String
         @sass = convert_to_scss(@css)
-        flash[:error] = '' # TODO: Fix this shit!
-        flash[:success] = 'Creativity is a habit.'
+        flash_notice
       else
-        flash[:success] = '' # TODO: Same crap!
-        flash[:error] = "Dude, nasty error! - #{@error}"
+        flash_error
       end
     else
       if convert_to_sass(@css).class == String
         @sass = convert_to_sass(@css)
-        flash[:error] = ''
-        flash[:success] = 'Creativity is a habit.'
+        flash_notice
       else
-        flash[:success] = ''
-        flash[:error] = "Dude, nasty error! - #{@error}"
+        flash_error
       end
     end
   end
@@ -91,4 +86,15 @@ class Css2sass < Sinatra::Base
       end
     end
   end
+
+  def flash_notice
+    flash[:error] = ''
+    flash[:success] = 'Creativity is a habit.'
+  end
+
+  def flash_error
+    flash[:success] = ''
+    flash[:error] = "Dude, nasty error! - #{@error}"
+  end
+
 end
