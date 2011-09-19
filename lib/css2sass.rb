@@ -7,9 +7,7 @@ require 'sinatra/redirect_with_flash'
 class Css2sass < Sinatra::Base
   use Rack::Flash, :sweep => true
   enable :sessions
-  set :public, File.dirname(__FILE__) + '/static'
 	set :show_exceptions, true if development?
-  set :raise_errors, false
 
   helpers do
     include Rack::Utils
@@ -23,34 +21,40 @@ class Css2sass < Sinatra::Base
   post "/*" do
     if params["page"]
       @css = params["page"]["css"]
-      css_to_sass(params["commit"])
-
-      if params[:splat].include?("json")
-        {:page => {:css => @css, :sass => @sass}}.to_json
-      elsif params[:splat].include?("xml")
-        to_xml
-      else
-        haml :index
-      end
+      @output = css_to_sass
+      flash_if_successful(@output)
+      render_response
     end
   end
 
-  def css_to_sass(type={})
-    if type.eql?("Convert 2 SCSS")
-      @sass = convert_to_scss(@css)
-      if sass?(@sass)
-        flash_notice
-      else
-        flash_error
-      end
+  def render_response
+    if params[:splat].include?("json")
+      render_json
+    elsif params[:splat].include?("xml")
+      render_xml
     else
-      @sass = convert_to_sass(@css)
-      if sass?(@sass)
-        flash_notice
-      else
-        flash_error
-      end
+      haml :index
     end
+  end
+
+  def css_to_sass
+    if params["commit"].eql?("Convert 2 SCSS")
+      convert_to_scss(@css)
+    else
+      convert_to_sass(@css)
+    end
+  end
+
+  def flash_if_successful(data)
+    if sass?(data)
+      flash_notice
+    else
+      flash_error
+    end
+  end
+
+  def sass?(data)
+    convert_to_sass(data).class == String
   end
 
   def convert_to_sass(css)
@@ -69,7 +73,7 @@ class Css2sass < Sinatra::Base
     end
   end
 
-  def to_xml
+  def render_xml
     builder do |xml|
       xml.instruct!
       xml.page do
@@ -77,10 +81,18 @@ class Css2sass < Sinatra::Base
           xml.cdata! @css
         end
         xml.sass do
-          xml.cdata! @sass
+          xml.cdata! @output
         end
       end
     end
+  end
+
+  def render_json
+    {:page =>
+      {:css => @css,
+        :sass => @output
+      }
+    }.to_json
   end
 
   def flash_notice
@@ -91,9 +103,5 @@ class Css2sass < Sinatra::Base
   def flash_error
     flash[:success] = ''
     flash[:error] = "Dude, nasty error! - #{@error}"
-  end
-
-  def sass?(what)
-    convert_to_sass(what).class == String
   end
 end

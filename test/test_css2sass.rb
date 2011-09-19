@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../css2sass'
+require File.dirname(__FILE__) + '/../lib/css2sass'
 require 'minitest/autorun'
 require 'rack/test'
 
@@ -13,16 +13,34 @@ class TestCss2sass < MiniTest::Unit::TestCase
     assert_match home_title, @browser.last_response.body
   end
 
-  def test_api_speak_json
-    @browser.post '/json', json_post
-    assert @browser.last_response.ok?
-    assert_match json_response, @browser.last_response.body
+  def test_html_sass_response
+    @browser.post '/', css2sass_post
+    assert_match html_sass_response, @browser.last_response.body
   end
 
-  def test_api_speak_xml
-    @browser.post '/xml', xml_post
-    assert @browser.last_response.ok?
-    assert_match xml_response, @browser.last_response.body
+  def test_html_scss_response
+    @browser.post '/', css2scss_post
+    assert_match html_scss_response, @browser.last_response.body
+  end
+
+  def test_api_speak_json_with_sass
+    @browser.post '/json', css2sass_post
+    assert_match json_sass_response, @browser.last_response.body
+  end
+
+  def test_api_speak_json_with_scss
+    @browser.post '/json', css2scss_post
+    assert_match json_scss_response, @browser.last_response.body
+  end
+
+  def test_api_speak_xml_with_sass
+    @browser.post '/xml', css2sass_post
+    assert_match xml_sass_response, @browser.last_response.body
+  end
+
+  def test_api_speak_xml_with_scss
+    @browser.post '/xml', css2scss_post
+    assert_match xml_scss_response, @browser.last_response.body
   end
 
   def home_title
@@ -31,27 +49,35 @@ class TestCss2sass < MiniTest::Unit::TestCase
     '</title>'
   end
 
-  def json_post
+  def css2scss_post
     { :page =>
       { :css => ".content-navigation { border-color: #3bbfce; color: #2b9eab; }"
-      }
+      },
+      :commit => "Convert 2 SCSS"
     }
   end
 
-  def json_response
+  def css2sass_post
+    { :page =>
+      { :css => ".content-navigation { border-color: #3bbfce; color: #2b9eab; }"
+      },
+      :commit => "Convert 2 SASS"
+    }
+  end
+
+  def json_sass_response
     '{"page":' +
       '{"css":".content-navigation { border-color: #3bbfce; color: #2b9eab; }",'+
       '"sass":".content-navigation\n  border-color: #3bbfce\n  color: #2b9eab\n"}}'
   end
 
-  def xml_post
-    { :page =>
-      { :css => ".content-navigation { border-color: #3bbfce; color: #2b9eab; }"
-      }
-    }
+  def json_scss_response
+    '{"page":' +
+      '{"css":".content-navigation { border-color: #3bbfce; color: #2b9eab; }",' +
+      '"sass":".content-navigation {\n  border-color: #3bbfce;\n  color: #2b9eab; }\n"}}'
   end
 
-  def xml_response
+  def xml_sass_response
     "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
     "<page>\n  " +
     "<css>\n    " +
@@ -61,6 +87,31 @@ class TestCss2sass < MiniTest::Unit::TestCase
     "<![CDATA[.content-navigation\n  border-color: #3bbfce\n  color: #2b9eab\n]]>\n  " +
     "</sass>\n" +
     "</page>\n"
+  end
+
+  def xml_scss_response
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
+    "<page>\n  " +
+    "<css>\n    " +
+    "<![CDATA[.content-navigation { border-color: #3bbfce; color: #2b9eab; }]]>\n  " +
+    "</css>\n  " +
+    "<sass>\n    " +
+    "<![CDATA[.content-navigation {\n  border-color: #3bbfce;\n  color: #2b9eab; }\n]]>\n  " +
+    "</sass>\n" +
+    "</page>\n"
+  end
+
+  def html_sass_response
+    "<textarea id='page_sass' name='page[sass]'>" +
+      ".content-navigation&#x000A;  border-color: #3bbfce&#x000A;  color: #2b9eab" +
+      "</textarea>"
+  end
+
+  def html_scss_response
+    "<textarea id='page_sass' name='page[sass]'>" +
+      ".content-navigation " +
+      "{&#x000A;  border-color: #3bbfce;&#x000A;  color: #2b9eab; }" +
+      "</textarea>"
   end
 
 end

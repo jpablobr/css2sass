@@ -1,4 +1,4 @@
-source :gemcutter
+source :rubygems
 
 gem 'sinatra'
 gem 'hpricot'
@@ -21,4 +21,5 @@ group :development, :test do
   gem 'shotgun'
   gem 'heroku'
   gem 'ZenTest'
+  gem 'pry'
 end
