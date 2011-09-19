@@ -11,10 +11,6 @@ class Css2sass < Sinatra::Base
 	set :show_exceptions, true if development?
   set :raise_errors, false
 
-  def self.testing_string
-    puts  "testing string"
-  end
-
   helpers do
     include Rack::Utils
     alias_method :h, :escape_html
@@ -41,15 +37,15 @@ class Css2sass < Sinatra::Base
 
   def css_to_sass(type={})
     if type.eql?("Convert 2 SCSS")
-      if convert_to_scss(@css).class == String
-        @sass = convert_to_scss(@css)
+      @sass = convert_to_scss(@css)
+      if sass?(@sass)
         flash_notice
       else
         flash_error
       end
     else
-      if convert_to_sass(@css).class == String
-        @sass = convert_to_sass(@css)
+      @sass = convert_to_sass(@css)
+      if sass?(@sass)
         flash_notice
       else
         flash_error
@@ -97,4 +93,7 @@ class Css2sass < Sinatra::Base
     flash[:error] = "Dude, nasty error! - #{@error}"
   end
 
+  def sass?(what)
+    convert_to_sass(what).class == String
+  end
 end
