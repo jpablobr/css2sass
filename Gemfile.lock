@@ -1,7 +1,6 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    ZenTest (4.6.2)
     addressable (2.2.6)
     awesome_print (0.4.0)
     builder (3.0.0)
@@ -65,7 +64,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ZenTest
   awesome_print
   builder
   erubis
