@@ -1,3 +1,7 @@
+## 0.1.2 (21/Sep/11)
+
+  - Migrated tests to minitest.
+
 ## 0.1.1 (Jun 21, 2011)
 
   - Added spec dir for setting up a better testing environment.
