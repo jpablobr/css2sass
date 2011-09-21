@@ -10,6 +10,7 @@ gem 'erubis'
 gem 'ruby_parser'
 gem 'rack-flash'
 gem 'sinatra-redirect-with-flash'
+gem 'heroku'
 
 group :development, :test do
   gem 'rack-test'
@@ -19,7 +20,6 @@ group :development, :test do
   gem 'guard-bundler'
   gem 'rb-inotify'
   gem 'shotgun'
-  gem 'heroku'
   gem 'ZenTest'
   gem 'pry'
 end
