@@ -7,6 +7,7 @@ require 'sinatra/redirect_with_flash'
 class Css2sass < Sinatra::Base
   use Rack::Flash, :sweep => true
   enable :sessions
+  set :public, "public"
 	set :show_exceptions, true if development?
 
   helpers do
