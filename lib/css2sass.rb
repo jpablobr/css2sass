@@ -8,6 +8,7 @@ class Css2sass < Sinatra::Base
   use Rack::Flash, :sweep => true
   enable :sessions
 	set :show_exceptions, true if development?
+  set :public, File.dirname(__FILE__) + '/public'
 
   helpers do
     include Rack::Utils
