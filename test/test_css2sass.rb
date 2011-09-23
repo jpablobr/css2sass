@@ -2,9 +2,9 @@ require File.dirname(__FILE__) + '/../lib/css2sass'
 require 'minitest/autorun'
 require 'rack/test'
 
-class TestCss2sass < MiniTest::Unit::TestCase
+class TestCss2sassApp < MiniTest::Unit::TestCase
   def setup
-    @browser = Rack::Test::Session.new(Rack::MockSession.new(Css2sass))
+    @browser = Rack::Test::Session.new(Rack::MockSession.new(Css2sass::App))
   end
 
   def test_home_says_css2sass
