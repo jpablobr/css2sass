@@ -3,7 +3,7 @@ require 'sass/css'
 require 'json'
 require 'rack-flash'
 require 'sinatra/redirect_with_flash'
-require 'pry'
+require_relative 'convert'
 
 module Css2sass
   class App < Sinatra::Base
@@ -29,12 +29,13 @@ module Css2sass
         else
           @output = Convert.new(@css).to_sass
         end
-        flash_if_successful(@output)
-        render_response
+        render = Render.new(@css, @output)
+        render.flash_if_successful
+        render.response
       end
     end
 
-    def render_response
+       def render_response
       if params[:splat].include?("json")
         render_json
       elsif params[:splat].include?("xml")
@@ -84,30 +85,5 @@ module Css2sass
       flash[:success] = ''
       flash[:error] = "Dude, nasty error! - #{@output}"
     end
-
   end
-
-  class Convert
-
-    def initialize(css)
-      @css = css
-    end
-
-    def to_sass
-      begin
-        Sass::CSS.new(@css).render(:sass)
-      rescue StandardError => e
-        @error = e
-      end
-    end
-
-    def to_scss
-      begin
-        Sass::CSS.new(@css).render(:scss)
-      rescue StandardError => e
-        @error = e
-      end
-    end
-  end
-
 end
