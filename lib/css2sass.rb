@@ -4,6 +4,7 @@ require 'json'
 require 'rack-flash'
 require 'sinatra/redirect_with_flash'
 require_relative 'convert'
+require_relative 'render'
 
 module Css2sass
   class App < Sinatra::Base
@@ -25,28 +26,17 @@ module Css2sass
       if params["page"]
         @css = params["page"]["css"]
         if params["commit"].eql?("Convert 2 SCSS")
-          @output = Convert.new(@css).to_scss
+          @output = Css2sass::Convert.new(@css).to_scss
         else
-          @output = Convert.new(@css).to_sass
+          @output = Css2sass::Convert.new(@css).to_sass
         end
-        render = Render.new(@css, @output)
-        render.flash_if_successful
-        render.response
+        flash_if_successful
+        render_response
       end
     end
 
-       def render_response
-      if params[:splat].include?("json")
-        render_json
-      elsif params[:splat].include?("xml")
-        render_xml
-      else
-        haml :index
-      end
-    end
-
-    def flash_if_successful(data)
-      if data.class == Sass::SyntaxError
+    def flash_if_successful
+      if @output.class == Sass::SyntaxError
         flash_error
         @output = nil
       else
@@ -54,26 +44,14 @@ module Css2sass
       end
     end
 
-    def render_xml
-      builder do |xml|
-        xml.instruct!
-        xml.page do
-          xml.css do
-            xml.cdata! @css
-          end
-          xml.sass do
-            xml.cdata! @output
-          end
-        end
+    def render_response
+      if params[:splat].include?("json")
+        Css2sass::Render.new(@css, @output).json
+      elsif params[:splat].include?("xml")
+        Css2sass::Render.new(@css, @output).xml
+      else
+        haml :index
       end
-    end
-
-    def render_json
-      {:page =>
-        {:css => @css,
-          :sass => @output
-        }
-      }.to_json
     end
 
     def flash_notice

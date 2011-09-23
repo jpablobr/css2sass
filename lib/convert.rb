@@ -1,5 +1,6 @@
 module Css2sass
   class Convert
+
     def initialize(css)
       @css = css
     end
