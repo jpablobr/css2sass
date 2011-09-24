@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'sinatra/base'
 
 module Css2sass
@@ -48,6 +49,7 @@ module Css2sass
       end
     end
 
+    # Flash lib is moronic!
     def flash_notice
       flash[:error] = ''
       flash[:success] = 'Creativity is a habit.'
@@ -58,4 +60,5 @@ module Css2sass
       flash[:error] = "Dude, nasty error! - #{@output}"
     end
   end
+
 end
