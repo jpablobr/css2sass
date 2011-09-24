@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'sass/css'
 module Css2sass
   class Convert

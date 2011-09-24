@@ -33,7 +33,6 @@ module Css2sass
     def flash_if_successful
       if @output.class == Sass::SyntaxError
         flash_error
-        @output = nil
       else
         flash_notice
       end
@@ -56,6 +55,7 @@ module Css2sass
     end
 
     def flash_error
+      @output = nil
       flash[:success] = ''
       flash[:error] = "Dude, nasty error! - #{@output}"
     end
