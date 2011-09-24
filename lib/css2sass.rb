@@ -1,10 +1,5 @@
-require 'haml'
-require 'sass/css'
-require 'json'
-require 'rack-flash'
-require 'sinatra/redirect_with_flash'
-require_relative 'convert'
-require_relative 'render'
+require 'sinatra/base'
+%w(convert render flash).each {|l| require_relative l }
 
 module Css2sass
   class App < Sinatra::Base

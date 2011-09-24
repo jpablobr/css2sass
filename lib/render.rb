@@ -1,20 +1,20 @@
+require 'json'
 module Css2sass
   class Render
 
-    def initialize(css, output)
+    def initialize(css=nil, output=nil)
       @css, @output = css, output
     end
 
     def xml
-      builder do |xml|
-        xml.instruct!
-        xml.page do
-          xml.css do
-            xml.cdata! @css
-          end
-          xml.sass do
-            xml.cdata! @output
-          end
+      xml = Builder::XmlMarkup.new
+      xml.instruct!
+      xml.page do
+        xml.css do
+          xml.cdata! @css.to_s
+        end
+        xml.sass do
+          xml.cdata! @output.to_s
         end
       end
     end

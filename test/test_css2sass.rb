@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../lib/css2sass'
 require 'minitest/autorun'
 require 'rack/test'
+require 'builder'
 
 class TestCss2sassApp < MiniTest::Unit::TestCase
   def setup
@@ -78,27 +79,27 @@ class TestCss2sassApp < MiniTest::Unit::TestCase
   end
 
   def xml_sass_response
-    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-    "<page>\n  " +
-    "<css>\n    " +
-    "<![CDATA[.content-navigation { border-color: #3bbfce; color: #2b9eab; }]]>\n  " +
-    "</css>\n  " +
-    "<sass>\n    " +
-    "<![CDATA[.content-navigation\n  border-color: #3bbfce\n  color: #2b9eab\n]]>\n  " +
-    "</sass>\n" +
-    "</page>\n"
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+      "<page>" +
+        "<css>" +
+          "<![CDATA[.content-navigation { border-color: #3bbfce; color: #2b9eab; }]]>" +
+         "</css>" +
+        "<sass>" +
+          "<![CDATA[.content-navigation\n  border-color: #3bbfce\n  color: #2b9eab\n]]>" +
+        "</sass>" +
+      "</page>"
   end
 
   def xml_scss_response
-    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" +
-    "<page>\n  " +
-    "<css>\n    " +
-    "<![CDATA[.content-navigation { border-color: #3bbfce; color: #2b9eab; }]]>\n  " +
-    "</css>\n  " +
-    "<sass>\n    " +
-    "<![CDATA[.content-navigation {\n  border-color: #3bbfce;\n  color: #2b9eab; }\n]]>\n  " +
-    "</sass>\n" +
-    "</page>\n"
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"+
+      "<page>"+
+        "<css>"+
+          "<![CDATA[.content-navigation { border-color: #3bbfce; color: #2b9eab; }]]>"+
+        "</css>"+
+        "<sass>"+
+          "<![CDATA[.content-navigation {\n  border-color: #3bbfce;\n  color: #2b9eab; }\n]]>"+
+        "</sass>"+
+      "</page>"
   end
 
   def html_sass_response
