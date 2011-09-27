@@ -25,8 +25,18 @@ module Css2sass
         else
           @output = Css2sass::Convert.new(@css).to_sass
         end
-        flash_if_successful
         render_response
+      end
+    end
+
+    def render_response
+      if params[:splat].include?("json")
+        Css2sass::Render.new(@css, @output).json
+      elsif params[:splat].include?("xml")
+        Css2sass::Render.new(@css, @output).xml
+      else
+        flash_if_successful
+        haml :index
       end
     end
 
@@ -38,16 +48,6 @@ module Css2sass
       end
     end
 
-    def render_response
-      if params[:splat].include?("json")
-        Css2sass::Render.new(@css, @output).json
-      elsif params[:splat].include?("xml")
-        Css2sass::Render.new(@css, @output).xml
-      else
-        haml :index
-      end
-    end
-
     # Flash lib is moronic!
     def flash_notice
       flash[:error] = ''
@@ -55,9 +55,9 @@ module Css2sass
     end
 
     def flash_error
-      @output = nil
       flash[:success] = ''
       flash[:error] = "Dude, nasty error! - #{@output}"
+      @output = nil
     end
   end
 

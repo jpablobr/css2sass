@@ -10,7 +10,7 @@ module Css2sass
     def to_sass
       begin
         Sass::CSS.new(@css).render(:sass)
-      rescue StandardError => e
+      rescue Sass::SyntaxError => e
         @error = e
       end
     end
@@ -18,9 +18,11 @@ module Css2sass
     def to_scss
       begin
         Sass::CSS.new(@css).render(:scss)
-      rescue StandardError => e
+      rescue Sass::SyntaxError => e
         @error = e
       end
     end
+
   end
+
 end

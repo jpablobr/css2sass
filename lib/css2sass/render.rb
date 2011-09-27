@@ -27,5 +27,7 @@ module Css2sass
         }
       }.to_json
     end
+
   end
+
 end
