@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../lib/css2sass'
+require_relative '../lib/css2sass'
 require 'minitest/autorun'
 require 'rack/test'
 require 'builder'
@@ -16,6 +16,7 @@ class TestCss2sassApp < MiniTest::Unit::TestCase
 
   def test_html_sass_response
     @browser.post '/', css2sass_post
+    @browser.last_response.body
     assert_match html_sass_response, @browser.last_response.body
   end
 

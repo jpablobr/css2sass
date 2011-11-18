@@ -1,1 +1,1 @@
-%w(convert render flash app version).each { |l| require_relative 'css2sass/' + l }
+%w(flash convert render app version).each { |l| require_relative 'css2sass/' + l }

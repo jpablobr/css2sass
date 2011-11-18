@@ -5,8 +5,9 @@ module Css2sass
   class App < Sinatra::Base
     use Rack::Flash, :sweep => true
     enable :sessions
-    set :public, "public"
     set :show_exceptions, true if development?
+    set :public_folder, Proc.new { settings.root + '/../../' + 'public' }
+    set :views, Proc.new { settings.root + '/../../' + 'views' }
 
     helpers do
       include Rack::Utils

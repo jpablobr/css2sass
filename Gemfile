@@ -17,5 +17,4 @@ group :development, :test do
   gem 'guard-bundler'
   gem 'rb-inotify'
   gem 'shotgun'
-  gem 'pry'
 end
