@@ -1,0 +1,107 @@
+-# Copyright 2012 Thomas Pierson <contact@thomaspierson.fr> ,
+-#                Nicolas Prat <nicooprat@gmail.com>
+-#
+-# This file is part of Css2Less Web Site.
+-#
+-# Css2Less Web Site is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU Affero General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# Css2Less Web Site is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU Affero General Public License for more details.
+-#
+-# You should have received a copy of the GNU Affero General Public License
+-# along with Css2Less Web Site.  If not, see <http://www.gnu.org/licenses/>.
+
+!!!
+%html
+    %head
+          
+        %title Css2Less
+        %meta{'name' => 'description', :content => 'Easily convert old CSS to fresh new LESS — As easy as copy/paste.'}/
+        %link{ :rel => "shortcut icon", :href => "/css/img/favicon.png", :type => "image/png", :sizes => "512x512"}/
+        %link{ :rel => "shortcut icon", :href => "/css/img/favicon_small.png", :type => "image/png", :sizes => "16x16"}/
+        
+        %script{:type => "text/javascript", :src  => "js/jquery.js"}
+        %script{:type => "text/javascript", :src  => "js/ace/ace-uncompressed.js"}
+        %script{:type => "text/javascript", :src  => "js/ace/mode-scss.js"}
+        %script{:type => "text/javascript", :src  => "js/onload.js"}
+        
+        :javascript
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-28455398-1']);
+              _gaq.push(['_trackPageview']);
+            
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+        
+        %link(rel="stylesheet" href="css/reset.css")
+        %link(rel="stylesheet" href="css/style.css")
+        
+        /[if lt IE 9]
+            %link(rel="stylesheet" href="css/ie.css")
+        
+%body
+
+    %a#info{:href => "#"}
+        More info
+    
+    #book
+        #wood
+            #paper
+                #left
+                    #input
+                #right
+                    #output
+            %p#shadow
+                %img{:alt => "", :src => "css/img/shadow.png"}/
+                
+    #content
+            
+        %h1 
+            %a{:href => "http://css2less.cc/"}Css2Less
+            
+        /[if lt IE 9]
+            
+            :markdown
+                ## Bad news :(
+                Seems like your browser isn't supported… Please make the world better by considering upgrade it !
+            
+        :markdown
+            
+            ## WTF ?
+
+            This tool has been thought for front-end developers who are tired of working with CSS. Here you can quickly convert your old CSS files to fresh new LESS files.
+            As easy as copy/paste. You can also convert files locally by install the [css2less](http://rubygems.org/gems/css2less) RubyGems.
+
+            ## Credits
+
+            This service use css2less library which is a ruby library refactored and Gemified by [Thomas Pierson](https://github.com/thomaspierson/libcss2less) and based on a script initially written by [Marcin Kulik](https://github.com/sickill/css2less).
+
+            This website interface was created by [Nico Prat](https://twitter.com/#!/nicooprat) and [Thomas Pierson](http://thomaspierson.fr/) under AGPL-3 an licence.
+            See [COPYING](https://raw.github.com/nicooprat/Css2Less/master/COPYING) file for more informations.
+
+            This service run on Sinatra and has been built with [HAML](http://haml-lang.com/) & [LESS](http://lesscss.org/) with the help of the excellent [ACE Editor](http://ace.ajax.org/).
+            Css2Less is self-hosted on an ecologic server at home, in France :)
+
+            ## Questions ?
+            
+            __LESS is cool. What about other awesome languages ?__
+            You could also check out [Css2Sass](http://css2sass.heroku.com/), [Js2Coffee](http://js2coffee.org/)
+            and [Html2Haml](http://html2haml.heroku.com/). What a wonderful world.
+            
+            __Get in touch__
+            You can report bugs, propose ideas and participate on our [Github repository](https://github.com/nicooprat/Css2Less).
+            
+            __Why .cc ?__
+            We finally decided that CC should mean Communist Compiler. Ya, we've a lot of imagination. If you know the real signification, please tell us. Anyway, it looks nice, doesn't it ?
+            
+            __What about Internet Explorer ?__
+            Internet what ?? Oh… Unfortunately, ACE Editor doesn't really support Internet Explorer. Not our fault ! But I'm sure you're not using it...
+

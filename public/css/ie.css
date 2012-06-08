@@ -1,0 +1,11 @@
+html body {
+  overflow: visible;
+}
+html body #info,
+html body #book,
+html body #not-ie {
+  display: none;
+}
+html body #ie {
+  display: block;
+}
