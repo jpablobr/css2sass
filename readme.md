@@ -4,6 +4,7 @@ css2sass
 This fork add a dynamic interface.
 
 This fork is based on:
+
      - https://github.com/jpablobr/css2sass
 
      - https://github.com/nicooprat/Css2Less
