@@ -1,7 +1,7 @@
 css2sass
 ========
 
-[http://css2sass.heroku.com/](http://css2sass.heroku.com/)
+This fork add a dynamic interface.
 
 css2sass is a simple sinatra app which Convert CSS Snippets to Syntactically Awesome StyleSheets code.
 
@@ -19,7 +19,7 @@ json and xml.
 
 ## Testing
 
-See `test/test_css2sass.rb`
+ruby -rubygems hi.rb
 
 ## TODO
 
