@@ -1,0 +1,13 @@
+body { margin: 20px 100px;color:gray;font-family: monospace }
+h6 { float:right; }
+h1 { margin-bottom:5px; }
+label { display:block; }
+textarea { width:100%;height:250px; }
+input.button { margin:20px; text-aligin:center; }
+a, a:visited { color: gray;}
+.notice { color: orange; }
+.error { color: red; }
+.success { color: green;}
+#title { width:515px; overflow:hidden;}
+#title h1 {width:270px; font-size:4em; display:inline;}
+#version{ float:right; margin-top:42px;}

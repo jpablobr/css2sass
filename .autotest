@@ -1,0 +1,9 @@
+# -*- ruby -*-
+
+require 'autotest/restart'
+require 'autotest/timestamp'
+
+Autotest.add_hook :initialize do |at|
+  at.testlib = 'minitest/unit'
+  at.unit_diff
+end

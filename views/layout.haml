@@ -1,0 +1,40 @@
+%html
+  %head
+    %title css2sass | Convert CSS Snippets to Syntactically Awesome StyleSheets code
+    - %w{ reset text 960 app }.each do |css|
+      %link{ :href => "/stylesheets/#{css}.css", :rel => "stylesheet", :type => "text/css", :media => "screen", :charset => "utf-8" }
+    %meta{ :name => 'description', :content => 'CSS2Sass | Convert CSS Snippets to Syntactically Awesome StyleSheets code'  }
+    %meta{ :name => 'keywords', :content => 'haml, ruby, html, rails, ruby on rails, Sass, SCSS'  }
+    :javascript
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-5087606-8']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  %body
+    #title
+      %h1 css2sass
+      #version
+        %a{:href => "http://sass-lang.com/"} Version
+        = Sass.version[:string]
+    %hr
+    .container_12
+      .grid_12
+        = yield
+      .clear
+      .grid_12
+        #box
+        %br
+        %p
+          Source at
+          %a{:href => "http://github.com/jpablobr/css2sass"} http://github.com/jpablobr/css2sass
+
+        %p
+          This simple site is created by Jose Pablo Barrantes @
+          %a{ :href => "http://jpablobr.com"} http://jpablobr.com
+          && heavily inspired by
+          %a{ :href => "http://html2haml.heroku.com/"}html2haml
