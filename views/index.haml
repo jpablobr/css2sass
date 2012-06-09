@@ -1,23 +1,100 @@
-- if flash[:notice]
-  %p.notice
-    = flash[:notice]
-- if flash[:error]
-  %p.error
-    = flash[:error]
-- if flash[:success]
-  %p.success
-    = flash[:success]
+-# Copyright 2012 Thomas Pierson <contact@thomaspierson.fr> ,
+-#                Nicolas Prat <nicooprat@gmail.com>
+-#
+-# This file is part of Css2Less Web Site.
+-#
+-# Css2Less Web Site is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU Affero General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# Css2Less Web Site is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU Affero General Public License for more details.
+-#
+-# You should have received a copy of the GNU Affero General Public License
+-# along with Css2Less Web Site.  If not, see <http://www.gnu.org/licenses/>.
 
-%form{:method => "POST", :action => "/", :id => "page"}
-  %label{:for => "page_css"}
-    CSS (paste your CSS code and convert!)
-  %textarea{:id => "page_css", :name => "page[css]"}=h @css || ""
-  %br
-  %input.button{:type => "submit", :name => "commit", :value => "Convert 2 SCSS"}
-  %input.button{:type => "submit", :name => "commit", :value => "Convert 2 SASS"}
-  %input.button{:type => "reset", :name => "commit", :value => "Reset"}
+!!!
+%html
+    %head
+          
+        %title Css2Sass
+        %meta{'name' => 'description', :content => 'Easily convert old CSS to fresh new SASS — As easy as copy/paste.'}/
+        %link{ :rel => "shortcut icon", :href => "/css/img/favicon.png", :type => "image/png", :sizes => "512x512"}/
+        %link{ :rel => "shortcut icon", :href => "/css/img/favicon_small.png", :type => "image/png", :sizes => "16x16"}/
+	
+        %script{:type => "text/javascript", :src  => "js/jquery.js"}
+        %script{:type => "text/javascript", :src  => "js/ace/ace-uncompressed.js"}
+        %script{:type => "text/javascript", :src  => "js/ace/mode-scss.js"}
+        %script{:type => "text/javascript", :src  => "js/onload.js"}
+        
+        :javascript
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-28455398-1']);
+              _gaq.push(['_trackPageview']);
+            
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+        
+        %link(rel="stylesheet" href="css/reset.css")
+        %link(rel="stylesheet" href="css/style.css")
+        %link(rel="stylesheet" href="css/bootstrap.css")
+        
+        /[if lt IE 9]
+            %link(rel="stylesheet" href="css/ie.css")
+        
+%body
 
-  %br
-  %label{:for => "page_sass"}
-    Your Syntactically Awesome StyleSheets code
-    %textarea{:id => "page_sass", :name => "page[sass]"}=h @output || ""
+    #container
+        %a#info{:href => "#"}
+            More info
+
+    
+        #book
+            #wood
+                #paper
+                    #left
+                        #input
+                    #right
+                        #output
+                %p#shadow
+                    %img{:alt => "", :src => "css/img/shadow.png"}/
+                
+        #content
+            
+            %h1 
+                %a{:href => "nowhere"}Css2Sass
+            
+            /[if lt IE 9]
+            
+                :markdown
+                    ## Bad news :(
+                    Seems like your browser isn't supported… Please make the world better by considering upgrade it !
+            
+            :markdown
+            
+                <div class="page-header">
+                    <h1>## WTF ?</h1>
+                </div>
+
+                This tool has been had by a student for a work experience, it's a tool who convert your CSS in SASS easily.
+
+                <div class="page-header">
+                    <h1>## Credits</h1>
+                </div>
+            
+                Fork based on [Css2Sass by jpablobr](https://github.com/jpablobr/css2sass) and [Css2Less by nicooprat](https://github.com/nicooprat/Css2Less).
+
+                <div class="page-header">
+                    <h1>## Questions</h1>
+                </div>
+            
+                You could also check out [Css2Sass](http://css2sass.heroku.com/), [Js2Coffee](http://js2coffee.org/), [Html2Haml](http://html2haml.heroku.com/) and [Css2Less](http://css2less.cc/).
+            
+                __What about Internet Explorer ?__
+                Internet what ?? Oh… Unfortunately, ACE Editor doesn't really support Internet Explorer. Not our fault ! But I'm sure you're not using it

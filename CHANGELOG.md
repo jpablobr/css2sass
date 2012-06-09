@@ -1,3 +1,6 @@
+## fork 0.2.0
+  - add dynamic interface
+
 ## 0.2.0 (21/Sep/11)
 
   - Refactored app... css2sass has been breaked into several proper objects.
