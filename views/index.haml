@@ -21,10 +21,10 @@
     %head
           
         %title Css2Sass
-        %meta{'name' => 'description', :content => 'Easily convert old CSS to fresh new LESS — As easy as copy/paste.'}/
+        %meta{'name' => 'description', :content => 'Easily convert old CSS to fresh new SASS — As easy as copy/paste.'}/
         %link{ :rel => "shortcut icon", :href => "/css/img/favicon.png", :type => "image/png", :sizes => "512x512"}/
         %link{ :rel => "shortcut icon", :href => "/css/img/favicon_small.png", :type => "image/png", :sizes => "16x16"}/
-        
+	
         %script{:type => "text/javascript", :src  => "js/jquery.js"}
         %script{:type => "text/javascript", :src  => "js/ace/ace-uncompressed.js"}
         %script{:type => "text/javascript", :src  => "js/ace/mode-scss.js"}
@@ -43,67 +43,58 @@
         
         %link(rel="stylesheet" href="css/reset.css")
         %link(rel="stylesheet" href="css/style.css")
+        %link(rel="stylesheet" href="css/bootstrap.css")
         
         /[if lt IE 9]
             %link(rel="stylesheet" href="css/ie.css")
         
 %body
 
-    %a#info{:href => "#"}
-        More info
+    #container
+        %a#info{:href => "#"}
+            More info
 
-    %a{:href => "https://github.com/thomaspierson/libcss2less"}
-        %img{:style => "position: fixed; top: 0; right: 0; border: 0; z-index: 99;", :src => "https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"}/
     
-    #book
-        #wood
-            #paper
-                #left
-                    #input
-                #right
-                    #output
-            %p#shadow
-                %img{:alt => "", :src => "css/img/shadow.png"}/
+        #book
+            #wood
+                #paper
+                    #left
+                        #input
+                    #right
+                        #output
+                %p#shadow
+                    %img{:alt => "", :src => "css/img/shadow.png"}/
                 
-    #content
+        #content
             
-        %h1 
-            %a{:href => "http://css2less.cc/"}Css2Less
+            %h1 
+                %a{:href => "nowhere"}Css2Sass
             
-        /[if lt IE 9]
+            /[if lt IE 9]
+            
+                :markdown
+                    ## Bad news :(
+                    Seems like your browser isn't supported… Please make the world better by considering upgrade it !
             
             :markdown
-                ## Bad news :(
-                Seems like your browser isn't supported… Please make the world better by considering upgrade it !
             
-        :markdown
+                <div class="page-header">
+                    <h1>## WTF ?</h1>
+                </div>
+
+                This tool has been had by a student for a work experience, it's a tool who convert your CSS in SASS easily.
+
+                <div class="page-header">
+                    <h1>## Credits</h1>
+                </div>
             
-            ## WTF ?
+                Fork based on [Css2Sass by jpablobr](https://github.com/jpablobr/css2sass) and [Css2Less by nicooprat](https://github.com/nicooprat/Css2Less).
 
-            This tool has been thought for front-end developers who are tired of working with CSS. Here you can quickly convert your old CSS files to fresh new LESS files.
-            As easy as copy/paste. You can also convert files locally by install the [css2less](http://rubygems.org/gems/css2less) RubyGems.
-
-            ## Credits
-
-            This service use css2less library which is a ruby library refactored and Gemified by [Thomas Pierson](https://github.com/thomaspierson/libcss2less) and based on a script initially written by [Marcin Kulik](https://github.com/sickill/css2less).
-
-            This website interface was created by [Nico Prat](https://twitter.com/#!/nicooprat) and [Thomas Pierson](http://thomaspierson.fr/) under AGPL-3 an licence.
-            See [COPYING](https://raw.github.com/nicooprat/Css2Less/master/COPYING) file for more informations.
-
-            This service run on Sinatra and has been built with [HAML](http://haml-lang.com/) & [LESS](http://lesscss.org/) with the help of the excellent [ACE Editor](http://ace.ajax.org/).
-            Css2Less is self-hosted on an ecologic server at home, in France :)
-
-            ## Questions ?
+                <div class="page-header">
+                    <h1>## Questions</h1>
+                </div>
             
-            __LESS is cool. What about other awesome languages ?__
-            You could also check out [Css2Sass](http://css2sass.heroku.com/), [Js2Coffee](http://js2coffee.org/)
-            and [Html2Haml](http://html2haml.heroku.com/). What a wonderful world.
+                You could also check out [Css2Sass](http://css2sass.heroku.com/), [Js2Coffee](http://js2coffee.org/), [Html2Haml](http://html2haml.heroku.com/) and [Css2Less](http://css2less.cc/).
             
-            __Get in touch__
-            You can report bugs, propose ideas and participate on our [Github repository](https://github.com/nicooprat/Css2Less).
-            
-            __Why .cc ?__
-            We finally decided that CC should mean Communist Compiler. Ya, we've a lot of imagination. If you know the real signification, please tell us. Anyway, it looks nice, doesn't it ?
-            
-            __What about Internet Explorer ?__
-            Internet what ?? Oh… Unfortunately, ACE Editor doesn't really support Internet Explorer. Not our fault ! But I'm sure you're not using it...
+                __What about Internet Explorer ?__
+                Internet what ?? Oh… Unfortunately, ACE Editor doesn't really support Internet Explorer. Not our fault ! But I'm sure you're not using it

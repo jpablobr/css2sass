@@ -70,6 +70,7 @@ html body #info:hover {
   opacity: 1;
 }
 html body #content {
+  font-size: 1.4em;
   margin: 0 auto;
   text-align: left;
   opacity: 0;
