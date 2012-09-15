@@ -47,7 +47,7 @@ GEM
     ruby_parser (2.3.1)
       sexp_processor (~> 3.0)
     rubyzip (0.9.8)
-    sass (3.1.19)
+    sass (3.2.1)
     sexp_processor (3.2.0)
     shotgun (0.9)
       rack (>= 1.0)
