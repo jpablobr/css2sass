@@ -17,6 +17,11 @@
   %input.button{:type => "submit", :name => "commit", :value => "Convert 2 SASS"}
   %input.button{:type => "reset", :name => "commit", :value => "Reset"}
 
+  %label.old
+    - is_checked = params['page'] && params['page']['old']
+    %input{:type => "checkbox", :name => "page[old]", :value => '1', :checked => is_checked}
+    Output the old-style ":prop val" property syntax.
+
   %br
   %label{:for => "page_sass"}
     Your Syntactically Awesome StyleSheets code

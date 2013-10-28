@@ -1,9 +1,9 @@
-source :rubygems
+source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'hpricot'
 gem 'haml'
-gem 'sass'
+gem 'sass', github: 'nex3/sass', ref: 'fed2ad1d18d75baeb2e7dbf0d50f98b811237df5'
 gem 'json'
 gem 'builder'
 gem 'erubis'

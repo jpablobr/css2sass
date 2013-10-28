@@ -3,13 +3,14 @@ require 'sass/css'
 module Css2sass
   class Convert
 
-    def initialize(css)
+    def initialize(css, options = {})
       @css = css
+      @options = options
     end
 
     def to_sass
       begin
-        Sass::CSS.new(@css).render(:sass)
+        Sass::CSS.new(@css, @options).render(:sass)
       rescue Sass::SyntaxError => e
         @error = e
       end
