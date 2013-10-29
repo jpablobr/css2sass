@@ -14,10 +14,6 @@ module Css2sass
       alias_method :h, :escape_html
     end
 
-    before do
-      #puts "#{env['REQUEST_METHOD']} #{env['REQUEST_PATH']} #{params}" if settings.environment == :development
-    end
-
     get "/" do
       haml :index
     end
