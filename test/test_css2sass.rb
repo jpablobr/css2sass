@@ -30,6 +30,11 @@ class TestCss2sassApp < MiniTest::Unit::TestCase
     assert_match json_sass_response, @browser.last_response.body
   end
 
+  def test_api_speak_json_with_sass_old_syntax
+    @browser.post '/json', css2sass_post_old_syntax
+    assert_match json_sass_response_old_syntax, @browser.last_response.body
+  end
+
   def test_api_speak_json_with_scss
     @browser.post '/json', css2scss_post
     assert_match json_scss_response, @browser.last_response.body
@@ -67,16 +72,26 @@ class TestCss2sassApp < MiniTest::Unit::TestCase
     }
   end
 
+  def css2sass_post_old_syntax
+    css2sass_post.tap {|h| h[:page][:old] = '1' }
+  end
+
   def json_sass_response
     '{"page":' +
       '{"css":".content-navigation { border-color: #3bbfce; color: #2b9eab; }",'+
       '"sass":".content-navigation\n  border-color: #3bbfce\n  color: #2b9eab\n"}}'
   end
 
+  def json_sass_response_old_syntax
+    '{"page":' +
+      '{"css":".content-navigation { border-color: #3bbfce; color: #2b9eab; }",'+
+      '"sass":".content-navigation\n  :border-color #3bbfce\n  :color #2b9eab\n"}}'
+  end
+
   def json_scss_response
     '{"page":' +
       '{"css":".content-navigation { border-color: #3bbfce; color: #2b9eab; }",' +
-      '"sass":".content-navigation {\n  border-color: #3bbfce;\n  color: #2b9eab; }\n"}}'
+      '"sass":".content-navigation {\n  border-color: #3bbfce;\n  color: #2b9eab;\n}\n"}}'
   end
 
   def xml_sass_response
@@ -98,7 +113,7 @@ class TestCss2sassApp < MiniTest::Unit::TestCase
           "<![CDATA[.content-navigation { border-color: #3bbfce; color: #2b9eab; }]]>"+
         "</css>"+
         "<sass>"+
-          "<![CDATA[.content-navigation {\n  border-color: #3bbfce;\n  color: #2b9eab; }\n]]>"+
+          "<![CDATA[.content-navigation {\n  border-color: #3bbfce;\n  color: #2b9eab;\n}\n]]>"+
         "</sass>"+
       "</page>"
   end
@@ -112,7 +127,7 @@ class TestCss2sassApp < MiniTest::Unit::TestCase
   def html_scss_response
     "<textarea id='page_sass' name='page[sass]'>" +
       ".content-navigation " +
-      "{&#x000A;  border-color: #3bbfce;&#x000A;  color: #2b9eab; }" +
+      "{&#x000A;  border-color: #3bbfce;&#x000A;  color: #2b9eab;&#x000A;}" +
       "</textarea>"
   end
 

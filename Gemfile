@@ -1,9 +1,9 @@
-source :rubygems
+source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'hpricot'
 gem 'haml'
-gem 'sass'
+gem 'sass', '>= 3.2.12', '<= 3.3.0'
 gem 'json'
 gem 'builder'
 gem 'erubis'

@@ -20,11 +20,13 @@ module Css2sass
 
     post "/*" do
       if params["page"]
+        options = {}
+        options[:old] = true if params["page"]['old'] == '1'
         @css = params["page"]["css"]
         if params["commit"].eql?("Convert 2 SCSS")
-          @output = Css2sass::Convert.new(@css).to_scss
+          @output = Css2sass::Convert.new(@css, options).to_scss
         else
-          @output = Css2sass::Convert.new(@css).to_sass
+          @output = Css2sass::Convert.new(@css, options).to_sass
         end
         render_response
       end
