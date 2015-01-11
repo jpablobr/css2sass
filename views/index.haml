@@ -5,21 +5,17 @@
     .tab.sass
       %h2 sass / scss
   .code-section
-    .notifications
-      - if flash[:notice]
-        %p.notice
-          = flash[:notice]
-      - if flash[:error]
-        %p.error
-          = flash[:error]
-      - if flash[:success]
-        %p.success
-          = flash[:success]
-
     %form{:method => "POST", :action => "/", :id => "page"}
       .code-container.left
         %label{:for => "page_css"}
           CSS (paste your CSS code and convert!)
+        .notifications
+          - if flash[:notice]
+            %span.notice= flash[:notice]
+          - if flash[:error]
+            %span.error= flash[:error]
+          - if flash[:success]
+            %span.success= flash[:success]
         %textarea{:id => "page_css", :name => "page[css]"}=h @css || ""
       .code-container.right
         %label{:for => "page_sass"}
