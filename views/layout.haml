@@ -16,25 +16,18 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
   %body
-    #title
-      %h1 css2sass
-      #version
-        %a{:href => "http://sass-lang.com/"} Version
-        = Sass.version[:string]
-    %hr
-    .container_12
-      .grid_12
-        = yield
-      .clear
-      .grid_12
-        #box
-        %br
-        %p
-          Source at
-          %a{:href => "http://github.com/jpablobr/css2sass"} http://github.com/jpablobr/css2sass
-
-        %p
-          This simple site is created by Jose Pablo Barrantes @
-          %a{ :href => "http://jpablobr.com"} http://jpablobr.com
-          && heavily inspired by
-          %a{ :href => "http://html2haml.heroku.com/"}html2haml
+    .wrapper
+      .top-section
+        %header
+          %h1 
+            css 2 sass/scss
+            %span converter
+        .top-info-section
+          .version-info
+            %a{:href => "http://sass-lang.com/"} Version
+            = Sass.version[:string]
+          .author-info
+            %p 
+              %span Created by Jose Pablo Barrantes @
+              %a{ :href => "http://jpablobr.com"} http://jpablobr.com
+      = yield
