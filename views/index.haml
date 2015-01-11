@@ -21,14 +21,10 @@
         %label{:for => "page_css"}
           CSS (paste your CSS code and convert!)
         %textarea{:id => "page_css", :name => "page[css]"}=h @css || ""
-        
-        
-
       .code-container.right
         %label{:for => "page_sass"}
           Your Syntactically Awesome StyleSheets code
         %textarea{:id => "page_sass", :name => "page[sass]"}=h @output || ""
-
       .code-actions
-        %input.button.scss{:type => "submit", :name => "commit", :value => "Convert 2 SCSS"}
         %input.button.sass{:type => "submit", :name => "commit", :value => "Convert 2 SASS"}
+        %input.button.scss{:type => "submit", :name => "commit", :value => "Convert 2 SCSS"}
