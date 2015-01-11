@@ -193,26 +193,26 @@ h1 span{
 	-moz-transition: all 0.3s ease;
 	transition: all 0.3s ease;
 }
-.button.sass{
+.button.scss{
 	border-bottom-right-radius: 55px;
 	border-bottom-left-radius: 55px;
-	background-image: url("/images/sass-icon.svg");
+	background-image: url("/images/scss-icon.svg");
 	background-position: center 20px;
 }
-.button.scss{
+.button.sass{
 	border-top-right-radius: 55px;
 	border-top-left-radius: 55px;
-	background-image: url("/images/scss-icon.svg");
+	background-image: url("/images/sass-icon.svg");
 	background-position: center bottom 20px;
 }
 .code-actions .button:hover{
 	background-color: #1782cf;
 }
 .code-actions .button.scss{
-	top: 0;
+	bottom: 0;
 }
 .code-actions .button.sass{
-	bottom: 0;
+	top: 0;
 }
 .code-actions:hover .button{
 	opacity: 1;
@@ -226,7 +226,6 @@ h1 span{
 }
 .notifications{
 	position: absolute;
-	background-color: #333;
 	top: 20px;
 	left: 0;
 	width: 99%;
@@ -238,6 +237,10 @@ h1 span{
 }
 .notifications span{
 	padding: 0 10px;
+	background-color: #333;
+	width: 99%;
+	float: left;
+	padding-left: 30px;
 }
 .notice{
 	color: orange;

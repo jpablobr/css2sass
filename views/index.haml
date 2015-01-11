@@ -14,8 +14,6 @@
             %span.notice= flash[:notice]
           - if flash[:error]
             %span.error= flash[:error]
-          - if flash[:success]
-            %span.success= flash[:success]
         %textarea{:id => "page_css", :name => "page[css]"}=h @css || ""
       .code-container.right
         %label{:for => "page_sass"}
