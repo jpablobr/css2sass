@@ -241,7 +241,7 @@ h1 span{
 }
 .notifications{
 	position: absolute;
-	top: 20px;
+	top: 15px;
 	left: 0;
 	width: 99%;
 	margin: auto;
@@ -253,15 +253,15 @@ h1 span{
 .notifications span{
 	padding: 0 10px;
 	background-color: #333;
-	width: 99%;
 	float: left;
 	padding-left: 30px;
+	padding-right: 30px;
 }
 .notice{
 	color: orange;
 }
 .error{
-	color: red;
+	color: #FF7B7B;
 }      
 .success{
 	color: green;
