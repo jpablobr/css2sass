@@ -1,3 +1,11 @@
+::-moz-selection{
+	background-color: black;
+	color: #3fa9f5;
+}
+::selection{
+	background-color: black;
+	color: #3fa9f5;
+}
 html{
 	height: 100%;
 	-webkit-font-smoothing: antialiased;
@@ -24,7 +32,7 @@ a:hover{
 }
 .wrapper{
 	max-height: 100%;
-	overflow: hidden;
+	
 }
 .top-section{
 	padding: 30px 30px 20px 30px;
@@ -117,27 +125,35 @@ h1 span{
 	top: 0;
 	background-color: #252525;
 }
+.code-container.right textarea{
+	-webkit-animation: highlight 1s;
+    animation: highlight 1s;
+}
+@-webkit-keyframes highlight {
+    from {color: #3fa9f5;}
+    to {color: #eee;}
+}
+@keyframes highlight {
+    from {color: #3fa9f5;}
+    to {color: #eee;}
+}
 .code-container{
 	width: 50%;
 	float: left;
 	position: relative;
-	max-height: 100%;
-	height: 100%;
-	overflow: hidden;
 }
 .code-container label{
 	position: absolute;
 	top: 0;
-	padding: 20px 30px 5px;
+	padding: 20px 30px;
 	font-size: 14px;
 	color: #999;
 	background-color: #333;
-	box-shadow: 0 5px 50px 0 #333;
 	width: 100%;
 }
 .code-container textarea{
 	width: 100%;
-	height: 100%;
+	min-height: 99%;
 	padding: 60px 30px 20px 30px;
 	font-family: inherit;
 	font-size: 14px;
@@ -158,7 +174,7 @@ h1 span{
 	background-position: center center;
 	left: 0;
 	right: 0;
-	top: 0;
+	top: -150px;
 	bottom: 0;
 	margin: auto;
 	border-radius: 50%;
@@ -221,9 +237,6 @@ h1 span{
 	margin-left: 120px;
 	opacity: 0;
 }
-.code-actions .type.scss:after{
-
-}
 .notifications{
 	position: absolute;
 	top: 20px;
@@ -251,18 +264,3 @@ h1 span{
 .success{
 	color: green;
 }
-
-/*
-h6 { float:right; }
-h1 { margin-bottom:5px; }
-label { display:block; }
-textarea { width:100%;height:250px; }
-input.button { margin:20px; text-aligin:center; }
-a, a:visited { color: gray;}
-.notice { color: orange; }
-.error { color: red; }
-.success { color: green;}
-#title { width:515px; overflow:hidden;}
-#title h1 {width:270px; font-size:4em; display:inline;}
-#version{ float:right; margin-top:42px;}
-*/
