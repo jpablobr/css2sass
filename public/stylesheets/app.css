@@ -31,15 +31,20 @@ a:hover{
 	border-bottom: 1px solid #3fa9f5;
 }
 .wrapper{
-	max-height: 100%;
-	
+	height: 100%;
+	width: 100%;
+	display: table;
+	overflow: hidden;
 }
 .top-section{
-	padding: 30px 30px 20px 30px;
+	padding: 30px 0 20px;
+	display: table-row;
+	float: left;
+	width: 100%;
 }
 header{
 	border-bottom: 1px solid #e6e6e6;
-	margin-bottom: 10px;
+	margin: 0 30px 10px;
 }
 h1{
 	font-family: montserrat;
@@ -53,9 +58,8 @@ h1 span{
 }
 .top-info-section{
 	margin-bottom: 20px;
-	float: left;
-	width: 100%;
 	color: #666;
+	padding: 0 30px;
 }
 .version-info{
 	float: left;
@@ -67,9 +71,9 @@ h1 span{
 	margin-bottom: 0;
 }
 .app-section{
-	float: left;
 	width: 100%;
 	height: 100%;
+	display: table-row;
 }
 .tabs-section{
 	background-color: #e6e6e6;
@@ -111,10 +115,7 @@ h1 span{
 	float: left;
 	width: 100%;
 	max-height: 100%;
-	min-height: 100%;
-}
-.notifications{
-	
+	height: 100%;
 }
 .code-container.left:after{
 	content: "";
@@ -140,6 +141,7 @@ h1 span{
 .code-container{
 	width: 50%;
 	float: left;
+	height: 100%;
 	position: relative;
 }
 .code-container label{
@@ -153,8 +155,8 @@ h1 span{
 }
 .code-container textarea{
 	width: 100%;
-	min-height: 99%;
-	padding: 60px 30px 20px 30px;
+	height: 100%;
+	padding: 60px 30px 80px 30px;
 	font-family: inherit;
 	font-size: 14px;
 	color: #eee;
@@ -174,7 +176,7 @@ h1 span{
 	background-position: center center;
 	left: 0;
 	right: 0;
-	top: -150px;
+	top: -45px;
 	bottom: 0;
 	margin: auto;
 	border-radius: 50%;
