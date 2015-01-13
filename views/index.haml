@@ -1,23 +1,24 @@
-- if flash[:notice]
-  %p.notice
-    = flash[:notice]
-- if flash[:error]
-  %p.error
-    = flash[:error]
-- if flash[:success]
-  %p.success
-    = flash[:success]
-
-%form{:method => "POST", :action => "/", :id => "page"}
-  %label{:for => "page_css"}
-    CSS (paste your CSS code and convert!)
-  %textarea{:id => "page_css", :name => "page[css]"}=h @css || ""
-  %br
-  %input.button{:type => "submit", :name => "commit", :value => "Convert 2 SCSS"}
-  %input.button{:type => "submit", :name => "commit", :value => "Convert 2 SASS"}
-  %input.button{:type => "reset", :name => "commit", :value => "Reset"}
-
-  %br
-  %label{:for => "page_sass"}
-    Your Syntactically Awesome StyleSheets code
-    %textarea{:id => "page_sass", :name => "page[sass]"}=h @output || ""
+.app-section
+  .tabs-section
+    .tab.css
+      %h2 css
+    .tab.sass
+      %h2 sass / scss
+  .code-section
+    %form{:method => "POST", :action => "/", :id => "page"}
+      .code-container.left
+        %label{:for => "page_css"}
+          CSS (paste your CSS code and convert!)
+        .notifications
+          - if flash[:notice]
+            %span.notice= flash[:notice]
+          - if flash[:error]
+            %span.error= flash[:error]
+        %textarea{:id => "page_css", :name => "page[css]"}=h @css || ""
+      .code-container.right
+        %label{:for => "page_sass"}
+          Your Syntactically Awesome StyleSheets code
+        %textarea{:id => "page_sass", :name => "page[sass]"}=h @output || ""
+      .code-actions
+        %input.button.sass{:type => "submit", :name => "commit", :value => "Convert 2 SASS"}
+        %input.button.scss{:type => "submit", :name => "commit", :value => "Convert 2 SCSS"}
