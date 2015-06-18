@@ -1,17 +1,6 @@
-# encoding: utf-8
-
+$:.unshift File.expand_path('../', __FILE__)
 require 'rubygems'
-
-begin
-  require 'bundler/setup'
-  Bundler.require(:default)
-rescue Bundler::GemNotFound
-  raise RuntimeError, "Bundler couldn't find some gems."
-end
-
+require 'sinatra'
 require './lib/css2sass'
-
-set :environment, :production
-disable :run
 
 run Css2sass::App

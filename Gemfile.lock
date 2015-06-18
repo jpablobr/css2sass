@@ -11,13 +11,13 @@ GEM
       tilt
     hpricot (0.8.6)
     json (1.8.2)
-    kgio (2.9.3)
+    puma (2.11.2)
+      rack (>= 1.1, < 2.0)
     rack (1.6.0)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    raindrops (0.13.0)
     ruby_parser (3.6.3)
       sexp_processor (~> 4.1)
     sass (3.4.9)
@@ -30,10 +30,6 @@ GEM
       sinatra (>= 1.0.0)
     thor (0.19.1)
     tilt (1.4.1)
-    unicorn (4.8.3)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
@@ -45,9 +41,9 @@ DEPENDENCIES
   haml
   hpricot
   json
+  puma
   rack-test
   ruby_parser
   sass
   sinatra
   sinatra-redirect-with-flash
-  unicorn

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.5'
+
 gem 'sinatra'
 gem 'hpricot'
 gem 'haml'
@@ -9,7 +11,7 @@ gem 'builder'
 gem 'erubis'
 gem 'ruby_parser'
 gem 'sinatra-redirect-with-flash'
-gem 'unicorn'
+gem 'puma'
 gem 'foreman'
 
 group :development, :test do
