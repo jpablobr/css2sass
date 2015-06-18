@@ -14,6 +14,6 @@ gem 'sinatra-redirect-with-flash'
 gem 'puma'
 gem 'foreman'
 
-group :development, :test do
+group :test do
   gem 'rack-test'
 end
