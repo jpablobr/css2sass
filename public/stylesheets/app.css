@@ -13,7 +13,7 @@ html{
 }
 body {
 	margin: 0;
-	font-family: Source Code Pro;
+	font-family: "Source Code Pro",	SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 	font-size: 12px;
 	height: 100%;
 }
@@ -262,7 +262,7 @@ h1 span{
 }
 .error{
 	color: #FF7B7B;
-}      
+}
 .success{
 	color: green;
 }
